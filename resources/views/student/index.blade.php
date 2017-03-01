@@ -20,9 +20,6 @@
               <td>{{$row->matricno}}</td>
               <td>{{$row->college}}</td>
               <td>{{$row->phoneno}}</td>
-              <td>
-                  <a href="#">Complete</a> | <a href="#">Edit</a> | <a href="#">Delete</a>
-              </td>
           </tr>
       @endforeach
     </tbody>

@@ -28,7 +28,7 @@
                                     <td>{{ $medicine->desc }}</td>
                                     <td>{{ $medicine->user->name }}</td>
                                     <td>
-                                    @if( $post->user_id == Auth::user()->id)
+                                    @if( $medicine->user_id == Auth::user()->id)
                                         <a href="{{ action('MedicinesController@edit',   $medicine->id) }}" class="btn btn-primary btn-sm">Edit</a>
                                         <a href="{{ action('MedicinesController@destroy',    $medicine->id) }}" class="btn btn-danger btn-sm" id="confirm-modal">Delete</a>
                                     @endif
