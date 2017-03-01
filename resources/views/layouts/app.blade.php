@@ -114,5 +114,20 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+    <script>
+        $(document).on("click", "#confirm-modal", function(e) {
+            window.console&&console.log('foo');
+            var url = $(this).attr("href");
+            window.console&&console.log(url);
+            e.preventDefault();
+
+            $('#destroy-form').attr('action', url);
+            $('#destroy-modal').modal({ show: true });
+        });
+    </script>
+
+
+
 </body>
 </html>

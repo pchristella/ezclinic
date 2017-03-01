@@ -19,6 +19,12 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/home', 'HomeController@index');
     Route::get('/student', 'StudentsController@index');
     Route::get('/medicine', 'MedicinesController@index');
+    Route::get('/medicine/create', 'MedicinesController@create');
+    Route::post('/medicine', 'MedicinesController@store');
+    Route::get('/medicine/{medicine}', 'MedicinesController@show');
+    Route::get('/medicine/{medicine}/edit', 'MedicinesController@edit');
+    Route::patch('/medicine/{medicine}', 'MedicinesController@update');
+    Route::delete('/medicine/{medicine}/delete', 'MedicinesController@destroy');
 });
 
 
