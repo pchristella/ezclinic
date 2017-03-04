@@ -24,6 +24,18 @@
                             @endif
                         </div>
                     </div>
+                    <div class="form-group{{ $errors->has('stockin') ? ' has-error' : '' }}">
+                    <label class="col-md-2 control-label">Stock In</label>
+                    <div class="col-md-8">
+                        <textarea class="form-control" name="stockin" placeholder="Total stock in" rows="1"
+                                  value="{{ old('stockin') }}" maxlength="500"></textarea>
+                        @if($errors->has('stockin'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('stockin') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                  </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <a href="{{ action('MedicinesController@index') }}" class="btn btn-default">Cancel</a>

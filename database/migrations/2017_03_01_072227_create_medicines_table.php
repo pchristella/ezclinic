@@ -16,6 +16,7 @@ class CreateMedicinesTable extends Migration
         Schema::create('medicines', function (Blueprint $table) {
             $table->increments('id');
             $table->string('desc');
+            $table->integer('stockin');
             $table->integer('user_id')->unsigned();;
             $table->timestamps();
 

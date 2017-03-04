@@ -4,7 +4,7 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h2>Posts<a href="{{ url('/medicine/create') }}" class="btn btn-info pull-right" role="button">Key In New Medicine</a></h2>
+        <h2>Medicines<a href="{{ url('/medicine/create') }}" class="btn btn-info pull-right" role="button">New Entry</a></h2>
 
     </div>
     <div class="panel-body">
@@ -15,7 +15,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th width="65%">Content</th>
+                                <th width="50%">Content</th>
+                                <th width="15%">Stock In</th>
                                 <th width="15%">By</th>
                                 <th width="15%">Action</th>
                             </tr>
@@ -26,6 +27,7 @@
                                 <tr>
                                     <td >{{ $medicines->firstItem() + $i }}</td>
                                     <td>{{ $medicine->desc }}</td>
+                                    <td>{{ $medicine->stockin }}</td>
                                     <td>{{ $medicine->user->name }}</td>
                                     <td>
                                     @if( $medicine->user_id == Auth::user()->id)

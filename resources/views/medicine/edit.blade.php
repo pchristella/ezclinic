@@ -2,7 +2,7 @@
 @section('content')
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h2>Edit Medicine</h2>
+        <h2>Edit</h2>
     </div>
     <div class="panel-body">
         <div class="row">
@@ -11,13 +11,24 @@
                     {{ csrf_field() }}
                     {{ method_field('PATCH') }}
                     <div class="form-group{{ $errors->has('desc') ? ' has-error' : '' }}">
-                        <label class="col-md-2 control-label">List of Medicine</label>
+                        <label class="col-md-2 control-label">Medicine</label>
                         <div class="col-md-8">
                             <textarea class="form-control" name="desc" rows="6" maxlength="500">{{ $medicine->desc }}</textarea>
                             <p class="text-muted">Maxmimum character is 500</p>
                             @if($errors->has('desc'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('desc') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="form-group{{ $errors->has('stockin') ? ' has-error' : '' }}">
+                        <label class="col-md-2 control-label">Stock In</label>
+                        <div class="col-md-8">
+                            <textarea class="form-control" name="stockin" rows="1" maxlength="500">{{ $medicine->stockin }}</textarea>
+                            @if($errors->has('stockin'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('stockin') }}</strong>
                                 </span>
                             @endif
                         </div>

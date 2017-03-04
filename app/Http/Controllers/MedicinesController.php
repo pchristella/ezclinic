@@ -43,6 +43,7 @@ class MedicinesController extends Controller
 
       $medicine = new Medicine;
       $medicine->desc = $request->desc;
+      $medicine->stockin = $request->stockin;
       $medicine->user_id = Auth::user()->id;
       $medicine->save();
 
@@ -87,9 +88,10 @@ class MedicinesController extends Controller
 
       $medicine = Medicine::findOrFail($id);
       $medicine->desc = $request->desc;
+      $medicine->stockin = $request->stockin;
       $medicine->save();
 
-      return redirect()->action('MedicinesController@index')->withMessage('Post has been successfully updated');
+      return redirect()->action('MedicinesController@index')->withMessage('Entry has been successfully updated');
     }
 
     /**
