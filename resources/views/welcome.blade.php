@@ -79,10 +79,11 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    EzCLINIC
+                    <img src="/bootstap/ezclinic.png" class="img-responsive" alt="">
                 </div>
 
                 <div class="links">
+                  <a href="{{ url('/home') }}">Home</a>
                     <a href="{{ url('/medicine') }}">Medicines</a>
                     <a href="{{ url('/student') }}">Students</a>
                 </div>

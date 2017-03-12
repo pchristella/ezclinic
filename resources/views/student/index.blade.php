@@ -18,8 +18,8 @@
           <tr>
               <td>{{$row->name}}</td>
               <td>{{$row->matricno}}</td>
-              <td>{{$row->college}}</td>
-              <td>{{$row->phoneno}}</td>
+              <td>{{$row->colladd}}</td>
+              <td>{{$row->tel}}</td>
           </tr>
       @endforeach
     </tbody>

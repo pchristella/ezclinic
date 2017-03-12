@@ -25,6 +25,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/medicine/{medicine}/edit', 'MedicinesController@edit');
     Route::patch('/medicine/{medicine}', 'MedicinesController@update');
     Route::delete('/medicine/{medicine}/delete', 'MedicinesController@destroy');
+    Route::get('/notification', 'NotificationsController@index');
 });
 
 
