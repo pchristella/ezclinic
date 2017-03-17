@@ -38,6 +38,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('matricno') ? ' has-error' : '' }}">
+                            <label for="matricno" class="col-md-4 control-label">Matric Number</label>
+
+                            <div class="col-md-6">
+                                <input id="matricno" type="text" class="form-control" name="matricno" value="{{ old('matricno') }}" required>
+
+                                @if ($errors->has('matricno'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('matricno') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 

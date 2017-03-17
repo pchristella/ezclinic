@@ -15,17 +15,16 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('name');
-          $table->string('matricno');
-          $table->string('email');
-          $table->string('password');
-          $table->string('homeadd');
-          $table->string('colladd');
-          $table->string('erno');
-          $table->string('tel');
-          $table->integer('weight');
-          $table->integer('height');
+          $table->integer('user_id')->index()->unsigned();
+          $table->string('homeadd')->nullable();
+          $table->string('colladd')->nullable();
+          $table->string('erno')->nullable();
+          $table->string('tel')->nullable();
+          $table->integer('weight')->nullable();
+          $table->integer('height')->nullable();
           $table->timestamps();
+
+          $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Student;
-use App\User;
-use Auth;
 
-class StudentsController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +13,7 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        $students = Student::where('user_id', Auth::user()->id)->get();
-        return view('profile.profile', compact('students'));
+        //
     }
 
     /**
@@ -60,8 +56,7 @@ class StudentsController extends Controller
      */
     public function edit($id)
     {
-        $student = Student::findOrFail($id);
-        return view('profile.edit', compact('student'));
+        //
     }
 
     /**
@@ -73,24 +68,7 @@ class StudentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::findOrFail($id);
-        $student = Student::where('user_id', $id)->first();
-
-        // $user->name = $request->name;
-        $user->email = $request->email;
-        $user->matricno = $request->matricno;
-
-        $student->homeadd = $request->homeadd;
-        $student->colladd = $request->colladd;
-        $student->erno = $request->erno;
-        $student->tel = $request->tel;
-        $student->weight = $request->weight;
-        $student->height = $request->height;
-
-        $user->save();
-        $student->save();
-
-        return redirect()->action('StudentsController@index')->withMessage('Profile has successfully updated!');
+        //
     }
 
     /**

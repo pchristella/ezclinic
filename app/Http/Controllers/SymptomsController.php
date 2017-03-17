@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Symptom;
 use Illuminate\Http\Request;
-use App\Student;
-use App\User;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
-class StudentsController extends Controller
+class SymptomsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        $students = Student::where('user_id', Auth::user()->id)->get();
-        return view('profile.profile', compact('students'));
+      $symptoms = Symptom::with('user')->paginate(5);
+      return view('symptom.index', compact('symptoms'));
     }
 
     /**
@@ -27,7 +26,7 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        //
+        return view('symptom.create');
     }
 
     /**
@@ -38,7 +37,16 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $this->validate($request, [
+          'disease' => 'required',
+      ]);
+
+      $symptom = new Symptom;
+      $symptom->disease = $request->disease;
+      $symptom->user_id = Auth::user()->id;
+      $symptom->save();
+
+      return redirect()->action('SymptomsController@store')->withMessage('Post has been successfully added');
     }
 
     /**
@@ -60,8 +68,8 @@ class StudentsController extends Controller
      */
     public function edit($id)
     {
-        $student = Student::findOrFail($id);
-        return view('profile.edit', compact('student'));
+      $symptom = Symptom::findOrFail($id);
+      return view('symptom.edit', compact('symptom'));
     }
 
     /**
@@ -73,24 +81,18 @@ class StudentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::findOrFail($id);
-        $student = Student::where('user_id', $id)->first();
+      $this->validate($request, [
+          'disease' => 'required',
+      ]);
 
-        // $user->name = $request->name;
-        $user->email = $request->email;
-        $user->matricno = $request->matricno;
+      $symptom = Symptom::findOrFail($id);
+      $symptom->disease = $request->disease;
+      $symptom->symptom = $request->symptom;
+      $symptom->type = $request->type;
+      $post->save();
 
-        $student->homeadd = $request->homeadd;
-        $student->colladd = $request->colladd;
-        $student->erno = $request->erno;
-        $student->tel = $request->tel;
-        $student->weight = $request->weight;
-        $student->height = $request->height;
+      return redirect()->action('SymptomsController@index')->withMessage('Disease has been successfully updated');
 
-        $user->save();
-        $student->save();
-
-        return redirect()->action('StudentsController@index')->withMessage('Profile has successfully updated!');
     }
 
     /**
@@ -101,6 +103,9 @@ class StudentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $symptom = Symptom::findOrFail($id);
+      $symptom->delete();
+      return back()->withError('Disease has been successfully deleted');
+
     }
 }

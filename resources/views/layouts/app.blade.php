@@ -62,6 +62,8 @@
                         <li><a href="{{ url('/home') }}">Home</a></li>
                         <li><a href="{{ url('/medicine') }}">Medicine</a></li>
                         <li><a href="{{ url('/student') }}">Student</a></li>
+                        <li><a href="{{ url('/symptom') }}">Diseases</a></li>
+                        <li><a href="{{ url('/profile') }}">Profile</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
