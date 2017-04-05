@@ -79,7 +79,7 @@ class StudentsController extends Controller
         // $user->name = $request->name;
         $user->email = $request->email;
         $user->matricno = $request->matricno;
-
+      //  $user->pic = $request->pic;
         $student->homeadd = $request->homeadd;
         $student->colladd = $request->colladd;
         $student->erno = $request->erno;
