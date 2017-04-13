@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Medicine;
+use App\Event;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $medicines = Medicine::all();
-      return view('home', compact('medicines'));
+      $events = Event::all();
+      return view('home', compact('events'));
     }
 }

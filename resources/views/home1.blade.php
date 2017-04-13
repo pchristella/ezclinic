@@ -105,7 +105,7 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <!-- /.panel -->
+                    <!-- /.panel
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i> Medicine List
@@ -124,7 +124,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- /.panel-heading -->
+
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
@@ -152,11 +152,11 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <!-- /.table-responsive -->
+                                    
                                 </div>
-                                <!-- /.col-lg-8 (nested) -->
+
                             </div>
-                          </div>
+                          </div> -->
                         </div>
                             <!-- /.row -->
                         </div>
