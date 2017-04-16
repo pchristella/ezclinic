@@ -39,10 +39,14 @@ class SymptomsController extends Controller
     {
       $this->validate($request, [
           'disease' => 'required',
+          'symptom' => 'required',
+          'type' => 'required',
       ]);
 
       $symptom = new Symptom;
       $symptom->disease = $request->disease;
+      $symptom->symptom = $request->symptom;
+      $symptom->type = $request->type;
       $symptom->user_id = Auth::user()->id;
       $symptom->save();
 
@@ -82,14 +86,16 @@ class SymptomsController extends Controller
     public function update(Request $request, $id)
     {
       $this->validate($request, [
-          'disease' => 'required',
+        'disease' => 'required',
+        'symptom' => 'required',
+        'type' => 'required',
       ]);
 
       $symptom = Symptom::findOrFail($id);
       $symptom->disease = $request->disease;
       $symptom->symptom = $request->symptom;
       $symptom->type = $request->type;
-      $post->save();
+      $symptom->save();
 
       return redirect()->action('SymptomsController@index')->withMessage('Disease has been successfully updated');
 

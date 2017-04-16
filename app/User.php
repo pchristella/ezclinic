@@ -3,7 +3,7 @@
 namespace App;
 
 use App\Student;
-use App\Medicine;
+use App\Appointment;
 use App\Symptom;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -21,9 +21,9 @@ class User extends Authenticatable
         return $this->hasOne(Student::class, 'user_id');
     }
 
-    public function medicine()
+    public function appointment()
     {
-        return $this->hasMany(Medicine::class);
+        return $this->hasMany(Appointment::class);
     }
 
     public function symptom()

@@ -28,9 +28,10 @@
                                     <td >{{ $symptoms->firstItem() + $i }}</td>
                                     <td>{{ $symptom->disease }}</td>
                                     <td>{{ $symptom->symptom }}</td>
+                                    <td>{{ $symptom->type }}</td>
                                     <td>{{ $symptom->user->name }}</td>
                                     <td>
-                                    @if( $medicine->user_id == Auth::user()->id)
+                                    @if( $symptom->user_id == Auth::user()->id)
                                         <a href="{{ action('SymptomsController@edit',   $symptom->id) }}" class="btn btn-primary btn-sm">Edit</a>
                                         <a href="{{ action('SymptomsController@destroy',    $symptom->id) }}" class="btn btn-danger btn-sm" id="confirm-modal">Delete</a>
                                     @endif

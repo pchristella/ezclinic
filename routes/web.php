@@ -20,15 +20,29 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::resource('/profile', 'StudentsController');
 
-    Route::resource('events', 'EventController');
+    Route::get('/appointment', 'AppointmentController@index');
+    Route::get('/appointment/create', 'AppointmentController@create');
+    Route::post('/appointment', 'AppointmentController@store');
+    Route::get('/appointment/{appointment}', 'AppointmentController@show');
+    Route::get('/appointment/{appointment}/edit', 'AppointmentController@edit');
+    Route::patch('/appointment/{appointment}', 'AppointmentController@update');
+    Route::delete('/appointment/{appointment}/delete', 'AppointmentController@destroy');
 
     Route::get('/symptom', 'SymptomsController@index');
     Route::get('/symptom/create', 'SymptomsController@create');
-    Route::get('/symptom', 'SymptomsController@store');
+    Route::post('/symptom', 'SymptomsController@store');
     Route::get('/symptom/{symptom}', 'SymptomsController@show');
-    Route::get('/disease/{symptom}/edit', 'SymptomsController@edit');
-    Route::get('/symptom/{symptom}', 'SymptomsController@update');
-    Route::get('/symptom/{symptom}/delete', 'SymptomsController@destroy');
+    Route::get('/symptom/{symptom}/edit', 'SymptomsController@edit');
+    Route::patch('/symptom/{symptom}', 'SymptomsController@update');
+    Route::delete('/symptom/{symptom}/delete', 'SymptomsController@destroy');
+
+    Route::get('/event', 'EventsController@index');
+    Route::get('/event/create', 'EventsController@create');
+    Route::post('/event', 'EventsController@store');
+    Route::get('/event/{event}', 'EventsController@show');
+    Route::get('/event/{event}/edit', 'EventsController@edit');
+    Route::patch('/event/{event}', 'EventsController@update');
+    Route::delete('/event/{event}/delete', 'EventsControllersController@destroy');
 });
 
 

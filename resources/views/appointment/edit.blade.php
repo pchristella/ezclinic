@@ -7,40 +7,40 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-md-10">
-              <form class="form-horizontal" action="{{ action('SymptomsController@update', $symptom->id) }}" method="POST" enctype="multipart/form-data">
+              <form class="form-horizontal" action="{{ action('AppointmentController@update', $appointment->id) }}" method="POST" enctype="multipart/form-data">
                  {{ csrf_field() }}
                  {{ method_field('PATCH') }}
-                 <div class="form-group{{ $errors->has('disease') ? ' has-error' : '' }}">
-                     <label class="col-md-2 control-label">Post Content</label>
+                 <div class="form-group{{ $errors->has('app_type') ? ' has-error' : '' }}">
+                     <label class="col-md-2 control-label">Appointment Package</label>
                      <div class="col-md-8">
-                            <textarea class="form-control" name="disease" rows="6" maxlength="500">{{ $symptom->disease }}</textarea>
+                            <textarea class="form-control" name="app_type" rows="6" maxlength="500">{{ $appointment->app_type }}</textarea>
                             <p class="text-muted">Maxmimum character is 500</p>
-                            @if($errors->has('disease'))
+                            @if($errors->has('app_type'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('disease') }}</strong>
+                                    <strong>{{ $errors->first('app_type') }}</strong>
                                 </span>
                             @endif
                         </div>
                     </div>
 
-                    <div class="form-group{{ $errors->has('symptom') ? ' has-error' : '' }}">
-                        <label class="col-md-2 control-label">Symptom</label>
+                    <div class="form-group{{ $errors->has('app_date') ? ' has-error' : '' }}">
+                        <label class="col-md-2 control-label">Date</label>
                         <div class="col-md-8">
-                            <textarea class="form-control" name="symptom" rows="1" maxlength="500">{{ $symptom->symptom }}</textarea>
-                            @if($errors->has('symptom'))
+                            <input type="date" class="form-control" name="app_date">{{ $appointment->app_date }}
+                            @if($errors->has('app_date'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('symptom') }}</strong>
+                                    <strong>{{ $errors->first('app_date') }}</strong>
                                 </span>
                             @endif
                         </div>
                     </div>
-                    <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
-                        <label class="col-md-2 control-label">Type</label>
+                    <div class="form-group{{ $errors->has('app_time') ? ' has-error' : '' }}">
+                        <label class="col-md-2 control-label">Time</label>
                         <div class="col-md-8">
-                            <textarea class="form-control" name="type" rows="1" maxlength="500">{{ $symptom->type }}</textarea>
-                            @if($errors->has('type'))
+                            <input type="time" class="form-control" name="app_time">{{ $appointment->app_time }}
+                            @if($errors->has('app_time'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('type') }}</strong>
+                                    <strong>{{ $errors->first('app_time') }}</strong>
                                 </span>
                             @endif
                         </div>

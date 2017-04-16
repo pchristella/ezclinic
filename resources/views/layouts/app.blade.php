@@ -69,10 +69,9 @@
                     <ul class="nav navbar-nav">
                         &nbsp;
                         <li><a href="{{ url('/home') }}">Home</a></li>
-                        <li><a href="{{ url('/medicine') }}">Medicine</a></li>
-                        <li><a href="{{ url('/student') }}">Student</a></li>
-                        <li><a href="{{ url('/symptom') }}">Diseases</a></li>
-                        <li><a href="{{ url('/profile') }}">Profile</a></li>
+                        <li><a href="{{ url('/appointment') }}">Appointment</a></li>
+                        <li><a href="{{ url('/symptom') }}">Symptom Data (Admin)</a></li>
+                        <li><a href="{{ url('/event') }}">Event (Admin)</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -88,6 +87,9 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                  <li class="dropdown">
+                                    <a href="{{ url('/profile') }}">Profile</a>
+                                  </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -99,6 +101,7 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+
                                 </ul>
                             </li>
                         @endif
@@ -135,7 +138,19 @@
                 @yield('content')
             </div>
         </div>
+
+        <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>Copyright &copy; EzCLINIC 2017</p>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </footer>
+
+
     </div>
+
 </div>
 
     <!-- Scripts -->
