@@ -42,7 +42,15 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/event/{event}', 'EventsController@show');
     Route::get('/event/{event}/edit', 'EventsController@edit');
     Route::patch('/event/{event}', 'EventsController@update');
-    Route::delete('/event/{event}/delete', 'EventsControllersController@destroy');
+    Route::delete('/event/{event}/delete', 'EventsController@destroy');
+
+    Route::get('/announcement', 'AnnouncementsController@index');
+    Route::get('/announcement/create', 'AnnouncementsController@create');
+    Route::post('/announcement', 'AnnouncementsController@store');
+    Route::get('/announcement/{announcement}', 'AnnouncementsController@show');
+    Route::get('/announcement/{announcement}/edit', 'AnnouncementsController@edit');
+    Route::patch('/announcement/{announcement}', 'AnnouncementsController@update');
+    Route::delete('/announcement/{announcement}/delete', 'AnnouncementsController@destroy');
 });
 
 

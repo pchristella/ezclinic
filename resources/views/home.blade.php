@@ -19,9 +19,12 @@
             </div>
             <!-- /.col-md-8 -->
             <div class="col-md-4">
-                <h1>Business Name or Tagline</h1>
-                <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!</p>
-                <a class="btn btn-primary btn-lg" href="#">Call to Action!</a>
+
+                <h1>Title</h1>
+                <p>Content</p>
+
+                <a class="btn btn-primary btn-lg" href="{{ url('/event') }}">More Info</a>
+
             </div>
             <!-- /.col-md-4 -->
         </div>
@@ -43,21 +46,21 @@
         <!-- Content Row -->
         <div class="row">
             <div class="col-md-4">
-                <h2>CHECK YOUR HEALTH</h2>
+                <h3>CHECK YOUR HEALTH</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
                 <a class="btn btn-default" href="{{ url('/symptom') }}">More Info</a>
             </div>
             <!-- /.col-md-4 -->
             <div class="col-md-4">
-                <h2>MAKE AN APPOINTMENT</h2>
+                <h3>MAKE AN APPOINTMENT</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
                 <a class="btn btn-default" href="{{ url('/appointment') }}">More Info</a>
             </div>
             <!-- /.col-md-4 -->
             <div class="col-md-4">
-                <h2>Heading 3</h2>
+                <h2>LATEST ANNOUNCEMENT</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-                <a class="btn btn-default" href="#">More Info</a>
+                <a class="btn btn-default" href="{{ url('/announcement') }}">More Info</a>
             </div>
             <!-- /.col-md-4 -->
         </div>

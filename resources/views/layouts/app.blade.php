@@ -72,6 +72,7 @@
                         <li><a href="{{ url('/appointment') }}">Appointment</a></li>
                         <li><a href="{{ url('/symptom') }}">Symptom Data (Admin)</a></li>
                         <li><a href="{{ url('/event') }}">Event (Admin)</a></li>
+                        <li><a href="{{ url('/announcement') }}">Announcement (Admin)</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

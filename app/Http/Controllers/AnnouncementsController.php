@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Event;
+use App\Announcement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class EventsController extends Controller
+class AnnouncementsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,8 @@ class EventsController extends Controller
      */
     public function index()
     {
-      $events = Event::with('user')->paginate(5);
-
-      return view('event.index', compact('events'));
+      $announcements = Announcement::with('user')->paginate(5);
+      return view('announcement.index', compact('announcements'));
     }
 
     /**
@@ -27,7 +26,7 @@ class EventsController extends Controller
      */
     public function create()
     {
-        return view('event.create');
+        return view('announcement.create');
     }
 
     /**
@@ -39,23 +38,19 @@ class EventsController extends Controller
     public function store(Request $request)
     {
       $this->validate($request, [
-          //'img' => 'required',
           'title' => 'required',
           'content' => 'required',
-          'eventdate' => 'required',
-          'eventtime' => 'required',
+
       ]);
 
-      $event = new Event;
-      //$event->img = $request->img;
-      $event->title = $request->title;
-      $event->content = $request->content;
-      $event->eventdate = $request->eventdate;
-      $event->eventtime = $request->eventtime;
-      $event->user_id = Auth::user()->id;
-      $event->save();
+      $announcement = new Announcement;
+      $announcement->title = $request->title;
+      $announcement->content = $request->content;
+      //$symptom->type = $request->type;
+      $announcement->user_id = Auth::user()->id;
+      $announcement->save();
 
-      return redirect()->action('EventsController@store')->withMessage('Event has been successfully added');
+      return redirect()->action('AnnouncementsController@store')->withMessage('Announcement has been successfully added');
     }
 
     /**
@@ -77,8 +72,8 @@ class EventsController extends Controller
      */
     public function edit($id)
     {
-      $event= Event::findOrFail($id);
-      return view('event.edit', compact('event'));
+      $announcement = Announcement::findOrFail($id);
+      return view('announcement.edit', compact('announcement'));
     }
 
     /**
@@ -91,23 +86,19 @@ class EventsController extends Controller
     public function update(Request $request, $id)
     {
       $this->validate($request, [
-        //'img' => 'required',
-        'title' => 'required',
-        'content' => 'required',
-        'eventdate' => 'required',
-        'eventtime' => 'required',
+          'title' => 'required',
+          'content' => 'required',
+
       ]);
 
-      $event = Event::findOrFail($id);
+      $announcement = Announcement::findOrFail($id);
+      $announcement->title = $request->title;
+      $announcement->content = $request->content;
+      //$symptom->type = $request->type;
+      //$announcement->user_id = Auth::user()->id;
+      $announcement->save();
 
-      $event->title = $request->title;
-      $event->content = $request->content;
-      $event->eventdate = $request->eventdate;
-      $event->eventtime = $request->eventtime;
-
-      $event->save();
-
-      return redirect()->action('EventsController@index')->withMessage('Disease has been successfully updated');
+      return redirect()->action('AnnouncementsController@index')->withMessage('Announcement has been successfully updated');
     }
 
     /**
@@ -118,8 +109,8 @@ class EventsController extends Controller
      */
     public function destroy($id)
     {
-      $event = Event::findOrFail($id);
-      $event->delete();
-      return back()->withError('Event has been successfully deleted');
+      $announcement = Announcement::findOrFail($id);
+      $announcement->delete();
+      return back()->withError('Announcement has been successfully deleted');
     }
 }
