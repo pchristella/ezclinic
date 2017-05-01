@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Symptom;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
+
+
 
 class SymptomsController extends Controller
 {
@@ -13,11 +16,23 @@ class SymptomsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-      $symptoms = Symptom::with('user')->paginate(5);
-      return view('symptom.index', compact('symptoms'));
+      $s = $request->input('s');
+
+      $symptoms = Symptom::with('user')
+      ->search('s')
+      ->paginate(5);
+      return view('symptom.index', compact('symptoms', 's'));
     }
+
+
+    public function symptom()
+   {
+    $symptoms = Symptom::where('symptom','like','%'.Input::get('search').'%')->paginate(5);//search the related item
+    return view('symptom.checker', compact('symptoms'));
+   }
+
 
     /**
      * Show the form for creating a new resource.
@@ -85,12 +100,6 @@ class SymptomsController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $this->validate($request, [
-        'disease' => 'required',
-        'symptom' => 'required',
-        'type' => 'required',
-      ]);
-
       $symptom = Symptom::findOrFail($id);
       $symptom->disease = $request->disease;
       $symptom->symptom = $request->symptom;

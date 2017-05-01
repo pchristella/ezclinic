@@ -90,13 +90,7 @@ class AppointmentController extends Controller
     public function update(Request $request, $id)
     {
 
-      $this->validate($request, [
-          'app_type' => 'required',
-          'app_date' => 'required',
-          'app_time' => 'required',
-      ]);
-
-      $appointment = Appointment::findOrFail($id);
+        $appointment = Appointment::findOrFail($id);
       $appointment->app_type = $request->app_type;
       $appointment->app_date = $request->app_date;
       $appointment->app_time = $request->app_time;

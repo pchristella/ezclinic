@@ -90,14 +90,6 @@ class EventsController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $this->validate($request, [
-        //'img' => 'required',
-        'title' => 'required',
-        'content' => 'required',
-        'eventdate' => 'required',
-        'eventtime' => 'required',
-      ]);
-
       $event = Event::findOrFail($id);
 
       $event->title = $request->title;

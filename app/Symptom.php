@@ -16,4 +16,9 @@ class Symptom extends Model
   {
       return $this->belongsTo(User::class);
   }
+
+  public function scopeSearch($query, $s)
+  {
+    return $query->where('symptom', 'like', '%' .$s. '%');
+  }
 }

@@ -14,7 +14,7 @@
                     <div class="form-group{{ $errors->has('disease') ? ' has-error' : '' }}">
                         <label class="col-md-2 control-label">Disease</label>
                         <div class="col-md-8">
-                            <textarea class="form-control" name="disease" placeholder="Enter disease name" rows="6"
+                            <textarea class="form-control" name="disease" placeholder="Enter disease name" rows="1"
                                       value="{{ old('disease') }}" maxlength="500"></textarea>
                             <p class="text-muted">Maxmimum character is 500</p>
                             @if($errors->has('disease'))
@@ -27,7 +27,7 @@
                     <div class="form-group{{ $errors->has('symptom') ? ' has-error' : '' }}">
                     <label class="col-md-2 control-label">Symptom</label>
                     <div class="col-md-8">
-                        <textarea class="form-control" name="symptom" placeholder="Disease's symptoms" rows="1"
+                        <textarea class="form-control" name="symptom" placeholder="Disease's symptoms" rows="4"
                                   value="{{ old('symptom') }}" maxlength="500"></textarea>
                         @if($errors->has('symptom'))
                             <span class="help-block">

@@ -85,12 +85,7 @@ class AnnouncementsController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $this->validate($request, [
-          'title' => 'required',
-          'content' => 'required',
-
-      ]);
-
+    
       $announcement = Announcement::findOrFail($id);
       $announcement->title = $request->title;
       $announcement->content = $request->content;

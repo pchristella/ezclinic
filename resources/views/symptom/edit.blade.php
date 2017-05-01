@@ -37,7 +37,7 @@
                     <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
                         <label class="col-md-2 control-label">Type</label>
                         <div class="col-md-8">
-                            <textarea class="form-control" name="type" rows="1" maxlength="500">{{ $symptom->type }}</textarea>
+                            <textarea class="form-control" name="type" rows="4" maxlength="500">{{ $symptom->type }}</textarea>
                             @if($errors->has('type'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('type') }}</strong>

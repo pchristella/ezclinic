@@ -67,12 +67,17 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+                      @if (Auth::guest())
+                      <li><a href="{{ url('/home') }}">Home</a></li>
+                      @else
                         &nbsp;
                         <li><a href="{{ url('/home') }}">Home</a></li>
                         <li><a href="{{ url('/appointment') }}">Appointment</a></li>
+                        <li><a href="{{ url('/checker') }}">Checker</a></li>
                         <li><a href="{{ url('/symptom') }}">Symptom Data (Admin)</a></li>
                         <li><a href="{{ url('/event') }}">Event (Admin)</a></li>
                         <li><a href="{{ url('/announcement') }}">Announcement (Admin)</a></li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -105,6 +110,7 @@
 
                                 </ul>
                             </li>
+                          
                         @endif
                     </ul>
                 </div>
