@@ -11,33 +11,34 @@
                 <form class="form-horizontal" action="{{ action('AppointmentController@store') }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
 
-                    <div class="form-group{{ $errors->has('app_type') ? ' has-error' : '' }}">
-                        <label class="col-md-2 control-label">Appointment's Type</label>
-                        <div class="col-md-8">
-                          <textarea class="form-control" name="app_type" placeholder="Choose appointment's type" rows="6"
-                                    value="{{ old('app_type') }}" maxlength="500"></textarea>
-                            @if($errors->has('app_type'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('app_type') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-                    </div>
+                     <label class="col-md-2 control-label">Type</label>
+                      <div class="form-group">
+                        <select name="app_type">
+                          <option value="checkup">Mouth and Teeth Check Up</option>
+                          <option value="scaling">Scaling</option>
+                          <option value="patching">Teeth Patching</option>
+                          <option value="treatment">Root Treatment</option>
+                          <option value="extraction">Tooth Extraction</option>
+                          <option value="dentur">Dentur</option>
+                          <option value="surgery">Small Surgery</option>
+                        </select>
+                      </div>
 
-                    <div class="form-group{{ $errors->has('app_date') ? ' has-error' : '' }}">
+
+                    <div class="form-group{{ $errors->has('date') ? ' has-error' : '' }}">
                         <label class="col-md-2 control-label">Date</label>
                         <div class="col-md-8">
-                            <input type="date" class="form-control" name="app_date" placeholder="Select your date" value="{{ old('app_date') }}">
-                            @if($errors->has('app_date'))
+                            <input type="date" class="form-control" name="date">{{ $availabilty->date }}"<
+                            @if($errors->has('date'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('app_date') }}</strong>
+                                    <strong>{{ $errors->first('date') }}</strong>
                                 </span>
                             @endif
                         </div>
                     </div>
 
                     <div class="form-group{{ $errors->has('app_time') ? ' has-error' : '' }}">
-                        <label class="col-md-2 control-label">Date</label>
+                        <label class="col-md-2 control-label">Time</label>
                         <div class="col-md-8">
                             <input type="time" class="form-control" name="app_time" placeholder="Select your time" value="{{ old('app_time') }}">
                             @if($errors->has('app_time'))
@@ -50,8 +51,8 @@
 
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <a href="{{ action('AppointmentController@index') }}" class="btn btn-default">Cancel</a>
-                            <button type="submit" class="btn btn-success">Save</button>
+                            <a href="{{ action('AvailabilitiesController@index') }}" class="btn btn-default">Cancel</a>
+                            <button type="submit" class="btn btn-success">Book</button>
                         </div>
                     </div>
                 </form>

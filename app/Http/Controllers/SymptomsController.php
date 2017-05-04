@@ -16,21 +16,23 @@ class SymptomsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-      $s = $request->input('s');
+      // $s = $request->input('s');
 
-      $symptoms = Symptom::with('user')
-      ->search('s')
-      ->paginate(5);
-      return view('symptom.index', compact('symptoms', 's'));
+      $symptoms = Symptom::with('user')->paginate(10);
+      return view('symptom.index', compact('symptoms'));
     }
 
 
-    public function symptom()
+    public function symptom(Request $request)
    {
-    $symptoms = Symptom::where('symptom','like','%'.Input::get('search').'%')->paginate(5);//search the related item
-    return view('symptom.checker', compact('symptoms'));
+     $s = $request->input('s');
+
+     $symptoms = Symptom::with('user')
+     ->search('s')
+     ->paginate(5);
+     return view('symptom.checker', compact('symptoms', 's'));
    }
 
 

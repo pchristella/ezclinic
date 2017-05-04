@@ -36,7 +36,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="well text-center">
-                    This is a well that is a great spot for a business tagline or phone number for easy access!
+                    Call us : Tel: 03-8921-5087 | Fax: 03-8921-3683
                 </div>
             </div>
             <!-- /.col-lg-12 -->
@@ -47,19 +47,19 @@
         <div class="row">
             <div class="col-md-4">
                 <h3>CHECK YOUR HEALTH</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
+                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p> -->
                 <a class="btn btn-default" href="{{ url('/symptom/checker') }}">More Info</a>
             </div>
             <!-- /.col-md-4 -->
             <div class="col-md-4">
                 <h3>MAKE AN APPOINTMENT</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
+                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p> -->
                 <a class="btn btn-default" href="{{ url('/appointment') }}">More Info</a>
             </div>
             <!-- /.col-md-4 -->
             <div class="col-md-4">
                 <h2>LATEST ANNOUNCEMENT</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
+                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p> -->
                 <a class="btn btn-default" href="{{ url('/announcement') }}">More Info</a>
             </div>
             <!-- /.col-md-4 -->

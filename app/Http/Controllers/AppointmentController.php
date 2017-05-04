@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Appointment;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,6 +32,7 @@ class AppointmentController extends Controller
         return view('appointment.create');
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -45,6 +47,7 @@ class AppointmentController extends Controller
           'app_time' => 'required',
       ]);
 
+      $availability = Availability::findOrFail($id);
       $appointment = new Appointment;
       //$application->name = $request->name;
       $appointment->app_type = $request->app_type;
@@ -90,7 +93,7 @@ class AppointmentController extends Controller
     public function update(Request $request, $id)
     {
 
-        $appointment = Appointment::findOrFail($id);
+      $appointment = Appointment::findOrFail($id);
       $appointment->app_type = $request->app_type;
       $appointment->app_date = $request->app_date;
       $appointment->app_time = $request->app_time;

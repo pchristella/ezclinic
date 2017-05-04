@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('matricno')->unique();
             $table->string('password');
             $table->string('api_token', 60)->unique()->nullable();
+            $table->enum('role', ['admin', 'user', 'staff'])->default('user');
             $table->rememberToken();
             $table->timestamps();
         });

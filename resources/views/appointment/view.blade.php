@@ -1,1 +1,0 @@
-just dpt view appointment

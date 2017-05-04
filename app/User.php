@@ -35,4 +35,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function roleCheck($role = null){
+        if ($role){
+            return $this->role == $role; //userRole kena sama dengan dalam database
+        }
+        return $this->role;
+    }
+
 }

@@ -24,7 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-      //$events = Event::all();
+
       return view('home');
+    }
+
+    public function admindashboard()
+    {
+      return view('admindashboard');
     }
 }

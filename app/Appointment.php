@@ -3,6 +3,7 @@
 namespace App;
 
 use App\User;
+use App\Availability;
 use Illuminate\Database\Eloquent\Model;
 
 class Appointment extends Model
@@ -12,4 +13,9 @@ class Appointment extends Model
   public function user(){
     return $this->belongsTo(User::class);
   }
+
+  public function availability()
+    {
+        return $this->hasOne(Availability::class, 'availability_id');
+    }
 }

@@ -84,6 +84,7 @@
 
                 <div class="links">
                   <a href="{{ url('/home') }}">Home</a>
+                  <!-- <a href="{{ url('/login') }}">Login</a> -->
                     <a href="{{ url('http://www.medhelp.org/forums/list') }}">Forum</a>
                 </div>
             </div>

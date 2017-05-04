@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAppointmentsTable extends Migration
+class CreateAvailabilitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,18 @@ class CreateAppointmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('appointments', function (Blueprint $table) {
+        Schema::create('availabilities', function (Blueprint $table) {
             $table->increments('id');
+            // $table->integer('appointment_id')->unsigned();
             $table->integer('user_id')->unsigned();
-            // $table->integer('availability_id')->unsigned();
-            $table->string('app_type')->nullable();
-            $table->date('app_date')->nullable();
-            $table->time('app_time')->nullable();
-            //$table->boolean('status')->nullable();
+            $table->date('date')->nullable();
+            $table->time('starttime')->nullable();
+            $table->time('endtime')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
 
-            // $table->foreign('availability_id')->references('id')->on('availabilities')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('appointment_id')->references('id')->on('appointments')->onDelete('cascade');
         });
     }
 
@@ -35,6 +35,6 @@ class CreateAppointmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appointments');
+        Schema::dropIfExists('availabilities');
     }
 }

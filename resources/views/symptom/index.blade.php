@@ -5,10 +5,10 @@
 <div class="panel panel-default">
     <div class="panel-heading">
       <div class="col-md-12">
-        <form method="get" action="{{ url('/symptom/index') }}">
+        <!-- <form method="get" action="{{ url('/symptom/index') }}">
                       <input type="text" placeholder="Symptom's Keyword" name="s" value="{{ isset($s) ? $s : '' }}">
                       <button class="btn btn-outline-success" type="submit">Search</button>
-                  </form>
+                  </form> -->
     </div>
         <h2>Diseases<a href="{{ url('/symptom/create') }}" class="btn btn-info pull-right" role="button">New Entry</a></h2>
 
@@ -52,7 +52,7 @@
                             @endforelse
                         </tbody>
                       </table>
-                  {{ $symptoms->appends(['s'=> $s])->links() }}
+                  {{ $symptoms->links() }}
               </div>
           </div>
       </div>
