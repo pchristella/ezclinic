@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 <div class="panel panel-default">
     <div class="panel-heading">
         <h2>Edit</h2>
@@ -23,7 +24,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group{{ $errors->has('app_date') ? ' has-error' : '' }}">
+                    {{-- <div class="form-group{{ $errors->has('app_date') ? ' has-error' : '' }}">
                         <label class="col-md-2 control-label">Date</label>
                         <div class="col-md-8">
                             <input type="date" class="form-control" name="app_date">{{ $appointment->app_date }}
@@ -33,7 +34,8 @@
                                 </span>
                             @endif
                         </div>
-                    </div>
+                    </div> --}}
+                    
                     <div class="form-group{{ $errors->has('app_time') ? ' has-error' : '' }}">
                         <label class="col-md-2 control-label">Time</label>
                         <div class="col-md-8">
@@ -56,4 +58,22 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+<!-- <script src="{{ url('_asset/js') }}/daterangepicker.js"></script> -->
+<script type="text/javascript">
+$(function () {
+    $('input[name="app_time"]').daterangepicker({
+        "timePicker": true,
+        "timePicker24Hour": true,
+        "timePickerIncrement": 15,
+        "autoApply": true,
+        "locale": {
+            "format": "DD/MM/YYYY HH:mm:ss",
+            "separator": " - ",
+        }
+    });
+});
+</script>
 @endsection

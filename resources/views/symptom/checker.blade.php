@@ -3,57 +3,49 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-      <div class="col-md-12">
-        <form method="get" action="{{ action('SymptomsController@symptom') }}">
-                      <input type="text" placeholder="Symptom's Keyword" name="s" value="{{ isset($s) ? $s : '' }}">
-                      <button class="btn btn-outline-success" type="submit">Search</button>
-                  </form>
-    </div>
-        <!-- <h2>Diseases<a href="{{ url('/symptom/create') }}" class="btn btn-info pull-right" role="button">New Entry</a></h2> -->
+      
+        <h2><center>Symptom Checker</center></h2>
 
     </div>
     <div class="panel-body">
         <div class="row">
             <div class="col-md-12">
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Disease</th>
-                                <th>Symptom</th>
-                                <th>Type</th>
-                                <!-- <th>By</th> -->
-                            </tr>
-                        </thead>
-                        <tbody pull-{right}>
-                            <?php $i = 0 ?>
-                            @forelse($symptoms as $symptom)
-                                <tr>
-                                    <td >{{ $symptoms->firstItem() + $i }}</td>
-                                    <td>{{ $symptom->disease }}</td>
-                                    <td>{{ $symptom->symptom }}</td>
-                                    <td>{{ $symptom->type }}</td>
-                                    <!-- <td>{{ $symptom->user->name }}</td> -->
-                                    <!-- <td>
-                                    @if( $symptom->user_id == Auth::user()->id)
-                                        <a href="{{ action('SymptomsController@edit',   $symptom->id) }}" class="btn btn-primary btn-sm">Edit</a>
-                                        <a href="{{ action('SymptomsController@destroy',    $symptom->id) }}" class="btn btn-danger btn-sm" id="confirm-modal">Delete</a>
-                                    @endif
-                                    </td> -->
-                                </tr>
-                                <?php $i++ ?>
-                            @empty
-                            <tr>
-                                <td colspan="6">Looks like there is no symptom matched.</td>
-                            </tr>
+                <center><form method="get" action="{{ action('SymptomsController@symptom') }}">
+                    <input type="text" placeholder="Symptom's Keyword" name="q" value="{{ isset($q) ? $q : '' }}"><br>
+                    <div></div>
+                    <input type="text" placeholder="Symptom's Keyword" name="r" value="{{ isset($r) ? $r : '' }}"><br>
+                    <div></div>
+                    <input type="text" placeholder="Symptom's Keyword" name="s" value="{{ isset($s) ? $s : '' }}"><br>
+                    <div></div>
+                      <button class="btn btn-outline-success" type="submit">Search</button>
+                      </center>
+                </form>
+            </div>
 
-                            @endforelse
-                        </tbody>
-                      </table>
-                  {{ $symptoms->appends(['s'=> $s])->links() }}
-              </div>
-          </div>
+            <div class="container">
+            @if(isset($s))
+     <h2>Result</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th width="10%">Disease</th>
+                    <th width="55%">Symptom</th>
+                    <th width="10%">Type</th>
+                </tr>
+                </thead>
+            <tbody>
+            @foreach($symptoms as $s)
+            <tr>
+                <td width="10%">{{$s->disease}}</td>
+                <td width="55%">{{$s->symptom}}</td>
+                <td width="10%">{{$s->type}}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    @endif
+</div>
+
       </div>
   </div>
 </div>

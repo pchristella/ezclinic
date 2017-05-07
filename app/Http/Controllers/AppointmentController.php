@@ -26,7 +26,16 @@ class AppointmentController extends Controller
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
+
+
      */
+
+    public function appointment()
+    {
+      return view('appointment.appointment', compact('appointments'));
+    }
+
+    
     public function create()
     {
         return view('appointment.create');
@@ -47,7 +56,7 @@ class AppointmentController extends Controller
           'app_time' => 'required',
       ]);
 
-      $availability = Availability::findOrFail($id);
+      // $availability = Availability::findOrFail($id);
       $appointment = new Appointment;
       //$application->name = $request->name;
       $appointment->app_type = $request->app_type;

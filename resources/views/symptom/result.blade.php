@@ -1,7 +1,7 @@
 <div class="container">
-    @if(isset($details))
-        <p> The Search results for your query <b> {{ $query }} </b> are :</p>
-    <h2>Sample User details</h2>
+    @if(isset($s))
+{{--         <p> The Search results for your query <b> {{ $query }} </b> are :</p>
+ --}}    <h2>Sample User details</h2>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -11,11 +11,11 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($details as $symptom)
+            @foreach($symptoms as $s)
             <tr>
-                <td>{{$symptom->disease}}</td>
-                <td>{{$symptom->symptom}}</td>
-                <td>{{$symptom->type}}</td>
+                <td>{{$s->disease}}</td>
+                <td>{{$s->symptom}}</td>
+                <td>{{$s->type}}</td>
             </tr>
             @endforeach
         </tbody>

@@ -13,8 +13,8 @@
                  <div class="form-group{{ $errors->has('disease') ? ' has-error' : '' }}">
                      <label class="col-md-2 control-label">Post Content</label>
                      <div class="col-md-8">
-                            <textarea class="form-control" name="disease" rows="6" maxlength="500">{{ $symptom->disease }}</textarea>
-                            <p class="text-muted">Maxmimum character is 500</p>
+                            <textarea class="form-control" name="disease" rows="1">{{ $symptom->disease }}</textarea>
+                            
                             @if($errors->has('disease'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('disease') }}</strong>
@@ -26,7 +26,7 @@
                     <div class="form-group{{ $errors->has('symptom') ? ' has-error' : '' }}">
                         <label class="col-md-2 control-label">Symptom</label>
                         <div class="col-md-8">
-                            <textarea class="form-control" name="symptom" rows="1" maxlength="500">{{ $symptom->symptom }}</textarea>
+                            <textarea class="form-control" name="symptom" rows="6" maxlength="500">{{ $symptom->symptom }}</textarea>
                             @if($errors->has('symptom'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('symptom') }}</strong>
@@ -37,7 +37,7 @@
                     <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
                         <label class="col-md-2 control-label">Type</label>
                         <div class="col-md-8">
-                            <textarea class="form-control" name="type" rows="4" maxlength="500">{{ $symptom->type }}</textarea>
+                            <textarea class="form-control" name="type" rows="1">{{ $symptom->type }}</textarea>
                             @if($errors->has('type'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('type') }}</strong>

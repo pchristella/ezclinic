@@ -23,19 +23,19 @@
                           <option value="surgery">Small Surgery</option>
                         </select>
                       </div>
+{{-- 
 
-
-                    <div class="form-group{{ $errors->has('date') ? ' has-error' : '' }}">
+                    <div class="form-group{{ $errors->has('app_date') ? ' has-error' : '' }}">
                         <label class="col-md-2 control-label">Date</label>
                         <div class="col-md-8">
-                            <input type="date" class="form-control" name="date">{{ $availabilty->date }}"<
-                            @if($errors->has('date'))
+                            <input type="date" class="form-control" name="app_date">{{ $availabilty->app_date }}"<
+                            @if($errors->has('app_date'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('date') }}</strong>
+                                    <strong>{{ $errors->first('app_date') }}</strong>
                                 </span>
                             @endif
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="form-group{{ $errors->has('app_time') ? ' has-error' : '' }}">
                         <label class="col-md-2 control-label">Time</label>
@@ -51,7 +51,7 @@
 
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <a href="{{ action('AvailabilitiesController@index') }}" class="btn btn-default">Cancel</a>
+                            <a href="{{ action('AppointmentController@index') }}" class="btn btn-default">Cancel</a>
                             <button type="submit" class="btn btn-success">Book</button>
                         </div>
                     </div>
@@ -61,3 +61,21 @@
     </div>
 </div>
 @endsection
+
+@section('js')
+<script src="{{ url('_asset/js') }}/daterangepicker.js"></script>
+<script type="text/javascript">
+$(function () {
+ $('input[name="app_time"]').daterangepicker({
+ "minDate": moment('<?php echo date('Y-m-d G')?>'),
+ "timePicker": true,
+ "timePicker24Hour": true,
+ "timePickerIncrement": 15,
+ "autoApply": true,
+ "locale": {
+ "format": "DD/MM/YYYY HH:mm:ss",
+ "separator": " - ",
+ }
+ });
+});
+</script>

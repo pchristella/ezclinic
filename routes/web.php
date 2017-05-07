@@ -29,7 +29,7 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 
   // Route::get('/admindashboard', 'HomeController@admindashboard');
 
-  Route::get('/symptom/checker', 'SymptomsController@symptom');
+    Route::get('/symptom/checker', 'SymptomsController@symptom');
 
     Route::get('/symptom', 'SymptomsController@index');
     Route::get('/symptom/create', 'SymptomsController@create');
@@ -57,14 +57,17 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 });
 
 Route::group(['middleware' =>  ['auth', 'user']], function() {
-  // Route::get('/appointment', 'AppointmentController@index');
+  Route::get('/appointment', 'AppointmentController@index');
+  Route::get('/appointment', 'AppointmentController@appointment');
   Route::get('/appointment/create', 'AppointmentController@create');
   Route::post('/appointment', 'AppointmentController@store');
   Route::get('/appointment/{appointment}', 'AppointmentController@show');
   Route::get('/appointment/{appointment}/edit', 'AppointmentController@edit');
   Route::patch('/appointment/{appointment}', 'AppointmentController@update');
   Route::delete('/appointment/{appointment}/delete', 'AppointmentController@destroy');
-  Route::get('/appointment','AvailabilitiesController@index');
+  // Route::get('/appointment','AvailabilitiesController@index');
+
+  // Route::resource('appointments', 'AppointmentController');
 
   // Route::get('/symptom/checker', 'SymptomsController');
 

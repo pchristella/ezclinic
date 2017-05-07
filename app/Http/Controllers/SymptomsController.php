@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use App\Symptom;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,12 +27,24 @@ class SymptomsController extends Controller
 
     public function symptom(Request $request)
    {
+     $q = $request->input('q');
+     $r = $request->input('r');
      $s = $request->input('s');
 
-     $symptoms = Symptom::with('user')
-     ->search('s')
-     ->paginate(5);
-     return view('symptom.checker', compact('symptoms', 's'));
+     //$symptoms = Symptom::with('')
+     // // ->search('q')
+     // // ->search('r')
+     // ->search('s')
+     // ->paginate(5)
+     $symptoms = DB::table('symptoms')
+     ->where('symptom', 'like', '%'.$q.'%')
+     ->orwhere('symptom', 'like', '%'.$r.'%')
+     ->orwhere('symptom', 'like', '%'.$s.'%')
+     ->get();
+
+     return view('symptom.checker', compact('symptoms','q', 'r', 's'));
+
+
    }
 
 
