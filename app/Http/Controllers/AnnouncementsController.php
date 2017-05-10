@@ -19,6 +19,12 @@ class AnnouncementsController extends Controller
       return view('announcement.index', compact('announcements'));
     }
 
+     public function announce($id)
+    {
+      $announcement = Announcement::findOrFail($id);
+      return view('announcement.announcement', compact('announcement'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -61,7 +67,8 @@ class AnnouncementsController extends Controller
      */
     public function show($id)
     {
-        //
+      $announcements = Announcement::with('user')->paginate(5);
+      return view('/welcome', compact('announcements'));
     }
 
     /**

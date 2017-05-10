@@ -21,6 +21,8 @@
 
 <div class="row">
 	<div class="col-lg-6">
+
+	@forelse ($appointments as $appointment)
 		
 		<p>Time: <br>
 		{{ date("g:ia\, jS M Y", strtotime($appointment->app_time)) }}
@@ -40,7 +42,7 @@
 				<span class="glyphicon glyphicon-edit"></span> Edit</a> 
 			
 		</p>
-		
+		@endforelse
 	</div>
 </div>
 @endsection

@@ -18,7 +18,7 @@ class CreateAppointmentsTable extends Migration
             $table->integer('user_id')->unsigned();
             // $table->integer('availability_id')->unsigned();
             $table->string('app_type')->nullable();
-            $table->date('app_date')->nullable();
+            // $table->date('app_date')->nullable();
             $table->time('app_time')->nullable();
             //$table->boolean('status')->nullable();
             $table->timestamps();

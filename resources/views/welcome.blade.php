@@ -13,7 +13,8 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background-image: url("/images/medical-cross-background-45.jpg");
+                /*background-color: #fff;*/
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
@@ -43,6 +44,7 @@
 
             .content {
                 text-align: center;
+
             }
 
             .title {
@@ -61,6 +63,20 @@
 
             .m-b-md {
                 margin-bottom: 30px;
+            }
+
+            .table-responsive {
+                color: #000000;
+                
+            }
+
+            .table1 {
+                color: #000000;
+                
+            }
+
+            .t1 {
+                color: #ff0000;
             }
         </style>
     </head>
@@ -87,6 +103,36 @@
                   <!-- <a href="{{ url('/login') }}">Login</a> -->
                     <a href="{{ url('http://www.medhelp.org/forums/list') }}">Forum</a>
                 </div>
+
+                <br><br>
+                <h4 class="t1"><strong>!! ANNOUNCEMENT !!</strong></h4>
+
+                <div class="col-lg-12">
+                <div class="table-responsive">
+                    <table class="table1" border="1"  cellpadding="5" cellspacing="5" width="500">
+                        {{-- @foreach ($announcements as $announcement) --}}
+                        <thead>
+                            <tr>
+                                
+                                <th>Title</th>
+                                <th>Content</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            
+                            {{-- <td>{{ $announcement->title }}</td>
+                            <td>{{ $announcement->content }}</td> --}}
+                        </tr>
+                        </tbody>
+                        {{-- @endforeach --}}
+                    </table>                    
+                </div>
+                </div>
+
+               {{--  @foreach ($announcements as $a)
+                @include('announcement.index', array('announcement' => $a))
+                @endforeach --}}
             </div>
         </div>
     </body>

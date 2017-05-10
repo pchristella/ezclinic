@@ -18,4 +18,8 @@ class Appointment extends Model
     {
         return $this->hasOne(Availability::class, 'availability_id');
     }
+
+    protected $table = 'appointments'; // you may change this to your name table
+	public $timestamps = false; // set true if you are using created_at and updated_at
+	protected $primaryKey = 'my_id'; // the default is id
 }

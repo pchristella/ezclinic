@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => ['auth', 'admin']], function() {
@@ -39,13 +40,7 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::patch('/symptom/{symptom}', 'SymptomsController@update');
     Route::delete('/symptom/{symptom}/delete', 'SymptomsController@destroy');
 
-    Route::get('/event', 'EventsController@index');
-    Route::get('/event/create', 'EventsController@create');
-    Route::post('/event', 'EventsController@store');
-    Route::get('/event/{event}', 'EventsController@show');
-    Route::get('/event/{event}/edit', 'EventsController@edit');
-    Route::patch('/event/{event}', 'EventsController@update');
-    Route::delete('/event/{event}/delete', 'EventsController@destroy');
+    Route::get('/announcement/{announcement}announcement', 'AnnouncementsController@announce');
 
     Route::get('/announcement', 'AnnouncementsController@index');
     Route::get('/announcement/create', 'AnnouncementsController@create');
@@ -67,9 +62,12 @@ Route::group(['middleware' =>  ['auth', 'user']], function() {
   Route::delete('/appointment/{appointment}/delete', 'AppointmentController@destroy');
   // Route::get('/appointment','AvailabilitiesController@index');
 
+  Route::get('/announcement/{announcement}/announcement', 'AnnouncementsController@announce');
+  Route::get('/announcement', 'AnnouncementsController@index');
+
   // Route::resource('appointments', 'AppointmentController');
 
-  // Route::get('/symptom/checker', 'SymptomsController');
+  Route::get('/symptom/checker', 'SymptomsController@symptom');
 
   Route::resource('/profile', 'StudentsController');
 

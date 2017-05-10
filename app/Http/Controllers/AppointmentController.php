@@ -17,9 +17,8 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-      $appointments = Appointment::with('user')->paginate(5);
+        return view('appointment/list', ['appointments' => Appointment::orderBy('app_time')->get()]);
 
-      return view('appointment.index', compact('appointments'));
     }
 
     /**
@@ -60,7 +59,7 @@ class AppointmentController extends Controller
       $appointment = new Appointment;
       //$application->name = $request->name;
       $appointment->app_type = $request->app_type;
-      $appointment->app_date = $request->app_date;
+      // $appointment->app_date = $request->app_date;
       $appointment->app_time = $request->app_time;
       $appointment->user_id = Auth::user()->id;
 
@@ -104,7 +103,7 @@ class AppointmentController extends Controller
 
       $appointment = Appointment::findOrFail($id);
       $appointment->app_type = $request->app_type;
-      $appointment->app_date = $request->app_date;
+      // $appointment->app_date = $request->app_date;
       $appointment->app_time = $request->app_time;
 
       //$appointment->user_id = Auth::user()->id;

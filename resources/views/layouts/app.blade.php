@@ -68,8 +68,8 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                       @if (Auth::guest())
-                      <li><a href="{{ url('/login') }}">Login</a></li>
-                      <li><a href="{{ url('/register') }}">Register</a></li>
+                      <li></li>
+                      
                       @elseif (Auth::user()->role==='admin')
                         &nbsp;
                         <li><a href="{{ url('/home') }}">Home</a></li>

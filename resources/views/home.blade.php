@@ -20,9 +20,6 @@
             <!-- /.col-md-8 -->
             <div class="col-md-4">
 
-                <h1>Title</h1>
-                <p>Content</p>
-
                 <a class="btn btn-primary btn-lg" href="{{ url('/event') }}">More Info</a>
 
             </div>

@@ -1,5 +1,4 @@
 @extends('layouts.app1')
-
 @section('content')
 
 <div class="row">
@@ -19,7 +18,7 @@
 @endsection
 
 @section('js')
-<script src="{{ ('/fullcalendar/fullcalendar.min.js') }}"></script>
+<script src="{{ ('/public/_asset/fullcalendar/fullcalendar.min.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         

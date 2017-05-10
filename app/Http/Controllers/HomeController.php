@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-//use App\Event;
+use App\Announcement;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,12 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-      return view('home');
-    }
-
-    public function admindashboard()
-    {
-      return view('admindashboard');
+        return view('home');
     }
 }

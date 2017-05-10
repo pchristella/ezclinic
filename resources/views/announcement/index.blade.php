@@ -4,7 +4,14 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
+
+ @forelse($announcements as $announcement)
+
+    @if( $announcement->user_id == Auth::user()->id)
         <h2>Announcement<a href="{{ url('/announcement/create') }}" class="btn btn-info pull-right" role="button">New Announcement</a></h2>
+        @else
+        <h2>Announcement</h2>
+        @endif
 
     </div>
     <div class="panel-body">
@@ -23,7 +30,7 @@
                         </thead>
                         <tbody pull-{right}>
                             <?php $i = 0 ?>
-                            @forelse($announcements as $announcement)
+                           
                                 <tr>
                                     <td >{{ $announcements->firstItem() + $i }}</td>
                                     <td>{{ $announcement->title }}</td>
@@ -35,6 +42,9 @@
                                     @if( $announcement->user_id == Auth::user()->id)
                                         <a href="{{ action('AnnouncementsController@edit',   $announcement->id) }}" class="btn btn-primary btn-sm">Edit</a>
                                         <a href="{{ action('AnnouncementsController@destroy',    $announcement->id) }}" class="btn btn-danger btn-sm" id="confirm-modal">Delete</a>
+
+                                        @else
+                                         <a href="{{ action('AnnouncementsController@announce',   $announcement->id) }}" class="btn btn-primary btn-sm">Details</a>
                                     @endif
                                     </td>
                                 </tr>

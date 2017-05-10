@@ -63,7 +63,7 @@
 @endsection
 
 @section('js')
-<script src="{{ url('_asset/js') }}/daterangepicker.js"></script>
+<script src="{{ url('public/_asset/js/daterangepicker.js') }}"></script>
 <script type="text/javascript">
 $(function () {
  $('input[name="app_time"]').daterangepicker({
